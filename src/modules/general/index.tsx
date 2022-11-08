@@ -1,6 +1,6 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useState } from "react";
 import { Units } from "../../model/units";
-import { CitiesWeatherContainer } from "../weather/CitiesWeatherContainer";
+import CitiesWeatherContainer from "../weather/CitiesWeatherContainer";
 
 //TODO: move to units module
 export const UnitsContext = createContext<Units>("standard");

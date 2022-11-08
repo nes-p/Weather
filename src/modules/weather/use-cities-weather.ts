@@ -10,11 +10,13 @@ export const useCitiesWeather = () => {
   const [citiesWeather, setCitiesWeather] = useState<CurrentWeather[]>();
 
   useEffect(() => {
-    setLoading(true);
-    getCitiesWeather(units)
-      .then(setCitiesWeather)
-      .catch(setError)
-      .finally(() => setLoading(false));
+    if (!loading) {
+      setLoading(true);
+      getCitiesWeather(units)
+        .then(setCitiesWeather)
+        .catch(setError)
+        .finally(() => setLoading(false));
+    }
   }, [units]);
 
   return { citiesWeather, loading, error };

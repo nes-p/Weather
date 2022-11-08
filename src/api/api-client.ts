@@ -6,7 +6,7 @@ import { baseFetch } from "./baseQuery";
 const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
 
 const apiClient = {
-  getGeoData: (city: string): Promise<Geocoding> => {
+  getGeoData: (city: string): Promise<Geocoding[]> => {
     const API_BASE = process.env.REACT_APP_GEO_API_URL;
     return baseFetch(`${API_BASE}/direct?q=${city}&limit=1&appid=${API_KEY}`);
   },
