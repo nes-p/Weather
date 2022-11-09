@@ -7,13 +7,12 @@ const CitiesWeatherContainer: FC = () => {
   const isWeather = citiesWeather && !error && !loading;
 
   return (
-    <>
-      {console.log("render")}
+    <div className="weather-container">
       {isWeather &&
         citiesWeather.map((cityWeather) => (
           <CurrentWeatherComponent key={cityWeather.id} data={cityWeather} />
         ))}
-    </>
+    </div>
   );
 };
 export default CitiesWeatherContainer;

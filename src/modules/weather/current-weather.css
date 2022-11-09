@@ -32,6 +32,7 @@
 
 .weather-icon {
   width: 100px;
+  filter: invert();
 }
 
 .temperature {
@@ -66,4 +67,9 @@
 
 .parameter-label.top {
   border-bottom: 1px solid #fff;
+}
+
+.weather-container {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -17,6 +17,12 @@ export async function getCityWeather(
 export async function getCitiesWeather(
   units: Units
 ): Promise<CurrentWeather[]> {
-  const requests = cities.map((city) => getCityWeather(city, units));
+  const requests = cities.map(async (city) => {
+    const response = await getCityWeather(
+      `${city.cityName},${city.countryCode}`,
+      units
+    );
+    return { city: city.cityName, ...response };
+  });
   return await Promise.all(requests);
 }

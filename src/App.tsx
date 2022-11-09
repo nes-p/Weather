@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { General } from "./modules/general";
+import { General } from "./modules/outerUnitsSwitch";
 
 function App() {
   return (
@@ -20,7 +20,14 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <General />
+      <header className="App-header">
+        {/* <Logo /> */}
+        <h1>{"Global Current Weather"}</h1>
+      </header>
+      <main>
+        <General />
+      </main>
+      <footer>Page created by nes-p</footer>
     </div>
   );
 }
