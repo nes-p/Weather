@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { CurrentWeather } from "../../model/weather";
 import { getCitiesWeather } from "../../services/weatherService";
-import { UnitsContext } from "../outerUnitsSwitch";
+import { UnitsContext } from "../outerUnitsSwitch/UnitsContainer";
 
 export const useCitiesWeather = () => {
   const units = useContext(UnitsContext);

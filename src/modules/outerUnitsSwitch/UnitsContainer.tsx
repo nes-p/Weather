@@ -11,11 +11,12 @@ export const General = () => {
   const handleUnits = (
     event: ChangeEvent<{
       name?: string | undefined;
-      value: any;
+      value: string;
     }>
   ) => {
     const { value } = event.target;
-    setUnits(value);
+  //TODO: check this
+    setUnits(value as Units);
   };
 
   return (

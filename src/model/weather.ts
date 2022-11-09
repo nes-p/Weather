@@ -51,9 +51,9 @@ export interface CurrentWeather {
   main: Main;
   visibility: number;
   wind: Wind;
-  rain: VolumeLastHour;
+  rain?: VolumeLastHour;
   clouds: Clouds;
-  snow: VolumeLastHour;
+  snow?: VolumeLastHour;
   dt: number;
   sys: Sys;
   timezone: number;
