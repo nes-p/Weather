@@ -1,15 +1,18 @@
 import React, { FC } from "react";
 import "./current-weather.css";
 import { CurrentWeather } from "../../model/weather";
+import classNames from "classnames";
 
 interface CurrentWeatherProps {
   data: CurrentWeather;
 }
 
 const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
+
+  
   console.log("data", data);
   return (
-    <div className="weather">
+    <div className="weather">    
       <div className="top">
         <div>
           <p className="city">{data.city}</p>
@@ -20,7 +23,15 @@ const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
           className="weather-icon"
           src={`icons/${data.weather[0].icon}.svg`}
         />
-      </div>
+      </div>    
+      <div className="slider-container">     
+        <div>
+              <img
+            alt="chevron-left"
+            className="chevron-left"
+            src={`icons/chevron-right.svg`}
+          />
+          </div>
       <div className="bottom">
         <p className="temperature">{Math.round(data.main.temp)}°C</p>
         <div className="details">
@@ -46,8 +57,24 @@ const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
             <span className="parameter-value">{data.main.pressure} hPa</span>
           </div>
         </div>
+        </div>    
+      <div><img
+          alt="chevron-right"
+          className="chevron-right"
+          src={`icons/chevron-right.svg`}
+        /></div> 
       </div>
+      <div className="dots-container">
+      <span className="dot"></span>
+     
+      <span className="dot-faded"></span>
+      </div> 
     </div>
+   
+
+
+       
+   
   );
 };
 
