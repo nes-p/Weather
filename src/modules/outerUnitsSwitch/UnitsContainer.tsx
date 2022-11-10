@@ -1,49 +1,58 @@
-import { ChangeEvent, createContext, useState } from "react";
-import { Units, UnitsEnum } from "../../model/units";
+import { ChangeEvent, createContext } from "react";
+import { Units } from "../../model/units";
+import Header from "../header/Header";
 import CitiesWeatherContainer from "../weather/CitiesWeatherContainer";
+import useUnits from "./use-units";
 
-//TODO: move to units module
-export const UnitsContext = createContext<Units>("metric");
-
-export const General = () => {
-  const [units, setUnits] = useState<Units>("metric");
-
-  const handleUnits = (
+interface UnitsContextProps {
+  units: Units;
+  handleUnits: (
     event: ChangeEvent<{
       name?: string | undefined;
       value: string;
     }>
-  ) => {
-    const { value } = event.target;
-  //TODO: check this
-    setUnits(value as Units);
-  };
+  ) => void;
+}
+
+//TODO: move to units module
+export const UnitsContext = createContext<UnitsContextProps>({
+  units: "metric",
+  //TODO: check this mock
+  handleUnits: () => {},
+});
+
+const UnitsContainer = () => {
+  // const [units, setUnits] = useState<Units>("metric");
+
+  // const handleUnits = (
+  //   event: ChangeEvent<{
+  //     name?: string | undefined;
+  //     value: string;
+  //   }>
+  // ) => {
+  //   const { value } = event.target;
+  //   //TODO: check this
+  //   setUnits(value as Units);
+  // };
+
+  const { units, handleUnits } = useUnits();
 
   return (
     <div>
-      <label className="">
-        <input
-          type="radio"
-          name="units"
-          checked={units === UnitsEnum.IMPERIAL}
-          value={UnitsEnum.IMPERIAL}
-          onChange={(e) => handleUnits(e)}
-        />
-        Fahrenheit
-      </label>
-      <label className="">
-        <input
-          type="radio"
-          name="units"
-          checked={units === UnitsEnum.METRIC}
-          value={UnitsEnum.METRIC}
-          onChange={(e) => handleUnits(e)}
-        />
-        Celcius
-      </label>
-      <UnitsContext.Provider value={units}>
-        <CitiesWeatherContainer />
+      <UnitsContext.Provider
+        value={{
+          units,
+          handleUnits,
+        }}
+      >
+        <Header />
+        <main>
+          <CitiesWeatherContainer />
+        </main>
       </UnitsContext.Provider>
+      <footer>Page created by nes-p</footer>
     </div>
   );
 };
+
+export default UnitsContainer;

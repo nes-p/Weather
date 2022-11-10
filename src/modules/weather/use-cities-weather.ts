@@ -3,8 +3,8 @@ import { CurrentWeather } from "../../model/weather";
 import { getCitiesWeather } from "../../services/weatherService";
 import { UnitsContext } from "../outerUnitsSwitch/UnitsContainer";
 
-export const useCitiesWeather = () => {
-  const units = useContext(UnitsContext);
+const useCitiesWeather = () => {
+  const { units } = useContext(UnitsContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [citiesWeather, setCitiesWeather] = useState<CurrentWeather[]>();
@@ -21,3 +21,5 @@ export const useCitiesWeather = () => {
 
   return { citiesWeather, loading, error };
 };
+
+export default useCitiesWeather;

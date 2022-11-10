@@ -1,8 +1,6 @@
-import { createContext, FC, useContext } from "react";
-import { CurrentWeather } from "../../model/weather";
+import { FC } from "react";
 import CurrentWeatherComponent from "./CurrentWeatherComponent";
-import { useCitiesWeather } from "./use-cities-weather";
-
+import useCitiesWeather from "./use-cities-weather";
 
 const CitiesWeatherContainer: FC = () => {
   const { citiesWeather, error, loading } = useCitiesWeather();
@@ -10,14 +8,14 @@ const CitiesWeatherContainer: FC = () => {
 
   return (
     <div className="outer-weather">
-    <div className="side-col"></div>  
-    <div className="weather-container">
-      {isWeather &&
-        citiesWeather.map((cityWeather) => (      
-          <CurrentWeatherComponent key={cityWeather.id} data={cityWeather} />        
-        ))}
-    </div>
-    <div className="side-col"></div> 
+      <div className="side-col"></div>
+      <div className="weather-container">
+        {isWeather &&
+          citiesWeather.map((cityWeather) => (
+            <CurrentWeatherComponent key={cityWeather.id} data={cityWeather} />
+          ))}
+      </div>
+      <div className="side-col"></div>
     </div>
   );
 };

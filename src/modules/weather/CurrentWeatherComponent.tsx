@@ -1,6 +1,6 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { FC, useState } from "react";
 import "./current-weather.css";
-import './slider.css'; 
+import "./slider.css";
 import { CurrentWeather } from "../../model/weather";
 import GeneralWeatherInfo from "./GeneralWeatherInfo";
 import AdditionalWeatherInfo from "./AdditionalWeatherInfo";
@@ -13,16 +13,13 @@ export interface CurrentWeatherProps {
 const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
   const [isInitialScreen, setScreen] = useState(true);
 
-  const toggleScreen = ({target: {value}}: ChangeEvent<{
-    name?: string | undefined;
-    value: any;
-  }>) => {
-    setScreen(value);
-  }
+  const toggleScreen = () => {
+    setScreen(!isInitialScreen);
+  };
 
   console.log("data", data);
   return (
-    <div className="weather">    
+    <div className="weather">
       <div className="top">
         <div>
           <p className="city">{data.city}</p>
@@ -33,38 +30,49 @@ const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
           className="weather-icon"
           src={`icons/${data.weather[0].icon}.svg`}
         />
-      </div>    
-      <div className="slider-container">     
+      </div>
+      <div className="slider-container">
         <div>
-              <img
+          <img
             alt="chevron-left"
             className="chevron-left"
             src={`icons/chevron-right.svg`}
+            onClick={() => toggleScreen()}
           />
-          </div>
-      <div className="bottom">
-        {
-          isInitialScreen ?
-           <GeneralWeatherInfo data={data}/> :
-          <AdditionalWeatherInfo data={data}/>        }
-      
-        </div>    
-      <div><img
-          alt="chevron-right"
-          className="chevron-right"
-          src={`icons/chevron-right.svg`}
-        /></div> 
+        </div>
+        <div className="bottom">
+          {isInitialScreen ? (
+            <GeneralWeatherInfo data={data} />
+          ) : (
+            <AdditionalWeatherInfo data={data} />
+          )}
+        </div>
+        <div>
+          <img
+            alt="chevron-right"
+            className="chevron-right"
+            src={`icons/chevron-right.svg`}
+            onClick={() => toggleScreen()}
+          />
+        </div>
       </div>
       <div className="dots-container">
-      <span className={classNames("dot", isInitialScreen ? 'dot-bright' : 'dot-faded' )}></span>     
-      <span className={classNames("dot", isInitialScreen ? 'dot-faded' :  'dot-bright' )}></span>
-      </div> 
+        <span
+          onClick={() => toggleScreen()}
+          className={classNames(
+            "dot",
+            isInitialScreen ? "dot-bright" : "dot-faded"
+          )}
+        ></span>
+        <span
+          onClick={() => toggleScreen()}
+          className={classNames(
+            "dot",
+            isInitialScreen ? "dot-faded" : "dot-bright"
+          )}
+        ></span>
+      </div>
     </div>
-   
-
-
-       
-   
   );
 };
 
