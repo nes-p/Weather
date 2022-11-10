@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { UnitsEnum } from "../../model/units";
+import { UNITS } from "../../model/units";
 import { AppContext } from "../outerUnitsSwitch/AppContainer";
 import { convertUnixTimeToDate } from "../shared/utils/timeUtil";
 import { CurrentWeatherProps } from "./CurrentWeatherComponent";
@@ -7,7 +7,7 @@ import WeatherRow from "./WeaterRow";
 
 const GeneralWeatherInfo: FC<CurrentWeatherProps> = ({ data }) => {
   const { units } = useContext(AppContext);
-  const temperatureUnits = units === UnitsEnum.METRIC ? "°C" : "°F";
+  const temperatureUnits = units === UNITS.METRIC ? "°C" : "°F";
   return (
     <>
       <strong className="temperature">

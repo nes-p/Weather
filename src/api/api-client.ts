@@ -1,5 +1,5 @@
 import { Geocoding } from "../model/geo";
-import { Units } from "../model/units";
+import { UNITS } from "../model/units";
 import { CurrentWeather } from "../model/weather";
 import { baseFetch } from "./baseQuery";
 
@@ -13,7 +13,7 @@ const apiClient = {
   getCurrentWeather: (
     lat: number,
     lon: number,
-    units: Units
+    units: UNITS
   ): Promise<CurrentWeather> => {
     const API_BASE = process.env.REACT_APP_WEATHER_API_URL;
     return baseFetch(

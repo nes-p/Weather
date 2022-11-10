@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./header.css";
 import useUnits from "../outerUnitsSwitch/use-units";
-import { UnitsEnum } from "../../model/units";
+import { UNITS } from "../../model/units";
 import { FC, useContext } from "react";
 import { AppContext } from "../outerUnitsSwitch/AppContainer";
 import Button from "../shared/button/Button";
@@ -50,8 +50,8 @@ const Header: FC = () => {
           <input
             type="radio"
             name="units"
-            checked={units === UnitsEnum.IMPERIAL}
-            value={UnitsEnum.IMPERIAL}
+            checked={units === UNITS.IMPERIAL}
+            value={UNITS.IMPERIAL}
             onChange={(e) => handleUnits(e)}
           />
           Fahrenheit °F
@@ -60,15 +60,15 @@ const Header: FC = () => {
           <input
             type="radio"
             name="units"
-            checked={units === UnitsEnum.METRIC}
-            value={UnitsEnum.METRIC}
+            checked={units === UNITS.METRIC}
+            value={UNITS.METRIC}
             onChange={(e) => handleUnits(e)}
           />
           Celcius °C
         </label> 
         <div>
         <Button name="Update current weather" onClick={handleReload}/>   
-        </div>    
+        </div>   
       </div>
     </header>
   );

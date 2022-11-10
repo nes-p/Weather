@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { Units } from "../../model/units";
+import { UNITS } from "../../model/units";
 
-const useUnits = (unitsInitial?: Units) => {
-  const [units, setUnits] = useState<Units>(unitsInitial ?? "metric");
+const useUnits = (unitsInitial?: UNITS) => {
+  const [units, setUnits] = useState<UNITS>(unitsInitial ?? UNITS.METRIC);
 
   const handleUnits = (
     event: ChangeEvent<{
@@ -12,7 +12,8 @@ const useUnits = (unitsInitial?: Units) => {
   ) => {
     const { value } = event.target;
     //TODO: check this
-    setUnits(value as Units);
+    const newUnit = UNITS[value as keyof typeof UNITS];
+    setUnits(newUnit);
   };
 
   return { units, handleUnits };

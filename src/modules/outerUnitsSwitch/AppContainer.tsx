@@ -1,11 +1,12 @@
 import { ChangeEvent, createContext, useState } from "react";
-import { Units } from "../../model/units";
+import { UNITS } from "../../model/units";
 import Header from "../header/Header";
 import CitiesWeatherContainer from "../weather/CitiesWeatherContainer";
 import useUnits from "./use-units";
 
+
 interface AppContextProps {
-  units: Units;
+  units: UNITS;
   handleUnits: (
     event: ChangeEvent<{
       name?: string | undefined;
@@ -16,7 +17,7 @@ interface AppContextProps {
 
 //TODO: move to units module
 export const AppContext = createContext<AppContextProps>({
-  units: "metric",
+  units: UNITS.METRIC,
   //TODO: check this mock
   handleUnits: () => {},
 });

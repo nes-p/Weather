@@ -1,6 +1,4 @@
-export type Units = "standard" | "metric" | "imperial";
-
-export enum UnitsEnum {
+export enum UNITS {
   METRIC = "metric",
   IMPERIAL = "imperial",
 }
