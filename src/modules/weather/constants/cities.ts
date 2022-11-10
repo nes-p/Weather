@@ -1,4 +1,4 @@
-import { City } from "../../model/cities";
+import { City } from "../../../model/cities";
 
 export const cities: City[] = [
   { cityName: "Beijing", countryCode: "CN" },

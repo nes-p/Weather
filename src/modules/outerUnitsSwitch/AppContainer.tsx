@@ -1,10 +1,10 @@
-import { ChangeEvent, createContext } from "react";
+import { ChangeEvent, createContext, useState } from "react";
 import { Units } from "../../model/units";
 import Header from "../header/Header";
 import CitiesWeatherContainer from "../weather/CitiesWeatherContainer";
 import useUnits from "./use-units";
 
-interface UnitsContextProps {
+interface AppContextProps {
   units: Units;
   handleUnits: (
     event: ChangeEvent<{
@@ -15,44 +15,30 @@ interface UnitsContextProps {
 }
 
 //TODO: move to units module
-export const UnitsContext = createContext<UnitsContextProps>({
+export const AppContext = createContext<AppContextProps>({
   units: "metric",
   //TODO: check this mock
   handleUnits: () => {},
 });
 
-const UnitsContainer = () => {
-  // const [units, setUnits] = useState<Units>("metric");
-
-  // const handleUnits = (
-  //   event: ChangeEvent<{
-  //     name?: string | undefined;
-  //     value: string;
-  //   }>
-  // ) => {
-  //   const { value } = event.target;
-  //   //TODO: check this
-  //   setUnits(value as Units);
-  // };
-
+const AppContainer = () => {  
   const { units, handleUnits } = useUnits();
-
   return (
     <div>
-      <UnitsContext.Provider
+      <AppContext.Provider
         value={{
           units,
-          handleUnits,
+          handleUnits,         
         }}
       >
         <Header />
         <main>
-          <CitiesWeatherContainer />
+           <CitiesWeatherContainer />
         </main>
-      </UnitsContext.Provider>
+      </AppContext.Provider>
       <footer>Page created by nes-p</footer>
     </div>
   );
 };
 
-export default UnitsContainer;
+export default AppContainer;

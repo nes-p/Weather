@@ -1,9 +1,11 @@
 import logo from "./logo.svg";
 import "./header.css";
 import useUnits from "../outerUnitsSwitch/use-units";
-import { Units, UnitsEnum } from "../../model/units";
-import { ChangeEvent, FC, useContext } from "react";
-import { UnitsContext } from "../outerUnitsSwitch/UnitsContainer";
+import { UnitsEnum } from "../../model/units";
+import { FC, useContext } from "react";
+import { AppContext } from "../outerUnitsSwitch/AppContainer";
+import Button from "../shared/button/Button";
+import useCitiesWeather from "../weather/use-cities-weather";
 
 const Header: FC = () => {
   {
@@ -22,8 +24,11 @@ const Header: FC = () => {
         </a>
       </header> */
   }
-  const { units, handleUnits } = useContext(UnitsContext);
-
+  const { units, handleUnits } = useContext(AppContext);
+  const {handleLoadWeather} = useCitiesWeather();
+  const handleReload = () => {
+    handleLoadWeather();
+  }
   return (
     <header className="App-header">
       {/* <Logo /> */}
@@ -60,7 +65,10 @@ const Header: FC = () => {
             onChange={(e) => handleUnits(e)}
           />
           Celcius °C
-        </label>
+        </label> 
+        <div>
+        <Button name="Update current weather" onClick={handleReload}/>   
+        </div>    
       </div>
     </header>
   );

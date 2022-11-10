@@ -1,5 +1,5 @@
 import apiClient from "../api/api-client";
-import { cities } from "../lib/constants/cities";
+import { cities } from "../modules/weather/constants/cities";
 import { Geocoding } from "../model/geo";
 
 import { Units } from "../model/units";
@@ -9,8 +9,8 @@ export async function getCityWeather(
   city: string,
   units: Units
 ): Promise<CurrentWeather> {
-  return await apiClient.getGeoData(city).then((response: Geocoding[]) => {
-    return apiClient.getCurrentWeather(response[0].lat, response[0].lon, units);
+  return await apiClient.getGeoData(city).then(async (response: Geocoding[]) => {
+    return await apiClient.getCurrentWeather(response[0].lat, response[0].lon, units);
   });
 }
 
