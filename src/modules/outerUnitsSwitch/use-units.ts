@@ -12,7 +12,7 @@ const useUnits = (unitsInitial?: UNITS) => {
   ) => {
     const { value } = event.target;
     //TODO: check this
-    const newUnit = UNITS[value as keyof typeof UNITS];
+    const newUnit = UNITS[value.toUpperCase() as keyof typeof UNITS];
     setUnits(newUnit);
   };
 

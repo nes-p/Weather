@@ -1,4 +1,5 @@
-import logo from "./logo.svg";
+import fog from '../../fog.svg';
+import reshot from '../../reshot.svg';
 import "./header.css";
 import useUnits from "../outerUnitsSwitch/use-units";
 import { UNITS } from "../../model/units";
@@ -32,8 +33,9 @@ const Header: FC = () => {
   return (
     <header className="App-header">
       {/* <Logo /> */}
+      <img src={fog} className="logo" alt="logo" />
       <div className="internal-container">
-        <h1>{"Global Current Weather"}</h1>
+        <h2 className='app-name'>{"Global Current Weather"}</h2>
         {/* <img
           alt="menu"
           className="menu-icon"
@@ -45,8 +47,8 @@ const Header: FC = () => {
           <input type="checkbox" />
           <span className="slider round"></span>
         </label> */}
-
-        <label className="">
+        <div className=''>
+        <label className="units">
           <input
             type="radio"
             name="units"
@@ -56,7 +58,7 @@ const Header: FC = () => {
           />
           Fahrenheit °F
         </label>
-        <label className="">
+        <label className="units">
           <input
             type="radio"
             name="units"
@@ -66,6 +68,7 @@ const Header: FC = () => {
           />
           Celcius °C
         </label> 
+        </div>
         <div>
         <Button name="Update current weather" onClick={handleReload}/>   
         </div>   

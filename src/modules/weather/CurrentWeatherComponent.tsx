@@ -16,8 +16,6 @@ const CurrentWeatherComponent: FC<CurrentWeatherProps> = ({ data }) => {
   const toggleScreen = () => {
     setScreen(!isInitialScreen);
   };
-
-  console.log("data", data);
   return (
     <div className="weather">
       <div className="top">
