@@ -1,12 +1,13 @@
 import fog from '../../fog.svg';
-import reshot from '../../reshot.svg';
 import "./header.css";
+import './radio.css';
 import useUnits from "../outerUnitsSwitch/use-units";
 import { UNITS } from "../../model/units";
 import { FC, useContext } from "react";
 import { AppContext } from "../outerUnitsSwitch/AppContainer";
 import Button from "../shared/button/Button";
 import useCitiesWeather from "../weather/use-cities-weather";
+
 
 const Header: FC = () => {
   {
@@ -47,7 +48,7 @@ const Header: FC = () => {
           <input type="checkbox" />
           <span className="slider round"></span>
         </label> */}
-        <div className=''>
+        <div className=''>     
         <label className="units">
           <input
             type="radio"
@@ -55,8 +56,9 @@ const Header: FC = () => {
             checked={units === UNITS.IMPERIAL}
             value={UNITS.IMPERIAL}
             onChange={(e) => handleUnits(e)}
+            className='radio-button'
           />
-          Fahrenheit °F
+         <span className='radio-span'> Fahrenheit °F </span>
         </label>
         <label className="units">
           <input
@@ -66,8 +68,8 @@ const Header: FC = () => {
             value={UNITS.METRIC}
             onChange={(e) => handleUnits(e)}
           />
-          Celcius °C
-        </label> 
+          <span className='radio-span'> Celcius °C</span>
+        </label>  
         </div>
         <div>
         <Button name="Update current weather" onClick={handleReload}/>   
