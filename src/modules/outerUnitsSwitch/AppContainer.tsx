@@ -33,9 +33,9 @@ const AppContainer = () => {
         }}
       >
         <Header />
-        {/* <main > */}
+        <main >
            <CitiesWeatherContainer />
-        {/* </main> */}
+        </main>
       </AppContext.Provider>
       <footer>Page created by nes-p</footer>
     </div>

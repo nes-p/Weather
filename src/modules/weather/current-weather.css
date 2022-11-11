@@ -83,6 +83,7 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1 1 0;
+
 }
 .side-col {
   width: 27%;
@@ -91,6 +92,7 @@
 .outer-weather {
   display: flex;
   background-image: url('./../../daria-nepriakhina-WQD6TCLOozg-unsplash.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat;  
+
 }
 
