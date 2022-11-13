@@ -5,10 +5,11 @@ import useCitiesWeather from '../hooks/use-cities-weather';
 
 const CitiesWeatherContainer: FC = () => {
   const { citiesWeather, error, loading, handleLoadWeather, units } = useCitiesWeather();
+  const isWeather = citiesWeather.length > 0 && !error && !loading;
+
   useEffect(() => {
     handleLoadWeather();
   }, [units]);
-  const isWeather = citiesWeather.length > 0 && !error && !loading;
 
   return (
     <div className="outer-weather">
