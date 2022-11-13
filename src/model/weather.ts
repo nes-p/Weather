@@ -28,8 +28,8 @@ export interface Wind {
 }
 
 export interface VolumeLastHour {
-  "1h": number;
-  "3h": number;
+  '1h'?: number;
+  '3h'?: number;
 }
 
 export interface Clouds {
@@ -51,9 +51,9 @@ export interface CurrentWeather {
   main: Main;
   visibility: number;
   wind: Wind;
-  rain?: VolumeLastHour;
+  rain?: VolumeLastHour | null;
   clouds: Clouds;
-  snow?: VolumeLastHour;
+  snow?: VolumeLastHour | null;
   dt: number;
   sys: Sys;
   timezone: number;

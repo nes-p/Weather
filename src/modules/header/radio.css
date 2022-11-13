@@ -1,9 +1,9 @@
-input[type="radio" i] {
-    background-color: initial;
-    cursor: default;
-    appearance: auto;
-    box-sizing: border-box;
-    margin: 0px;
-    padding: initial;
-    border: initial;
+input[type='radio' i] {
+  background-color: initial;
+  cursor: default;
+  appearance: auto;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: initial;
+  border: initial;
 }

@@ -1,11 +1,11 @@
-import React from "react";
-import "./App.css";
-import AppContainer from "./modules/outerUnitsSwitch/AppContainer";
+import React from 'react';
+import './App.css';
+import UnitsContainer from './modules/unitsContainer/UnitsContainer';
 
 function App() {
   return (
     <div className="App">
-      <AppContainer />
+      <UnitsContainer />
     </div>
   );
 }

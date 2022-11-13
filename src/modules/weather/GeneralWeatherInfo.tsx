@@ -1,13 +1,17 @@
-import { FC, useContext } from "react";
-import { UNITS } from "../../model/units";
-import { AppContext } from "../outerUnitsSwitch/AppContainer";
-import { convertUnixTimeToDate } from "../shared/utils/timeUtil";
-import { CurrentWeatherProps } from "./CurrentWeatherComponent";
-import WeatherRow from "./WeaterRow";
+import { FC, useContext } from 'react';
+import { UNITS } from '../../model/units';
+import { CurrentWeather } from '../../model/weather';
+import { UnitsContext } from '../unitsContainer/UnitsContainer';
 
-const GeneralWeatherInfo: FC<CurrentWeatherProps> = ({ data }) => {
-  const { units } = useContext(AppContext);
-  const temperatureUnits = units === UNITS.METRIC ? "°C" : "°F";
+import WeatherRow from './components/WeaterRow';
+
+export interface IGeneralWeatherInfo {
+  data: Pick<CurrentWeather, 'main'>;
+}
+
+const GeneralWeatherInfo: FC<IGeneralWeatherInfo> = ({ data }) => {
+  const { units } = useContext(UnitsContext);
+  const temperatureUnits = units === UNITS.METRIC ? '°C' : '°F';
   return (
     <>
       <strong className="temperature">
@@ -16,22 +20,9 @@ const GeneralWeatherInfo: FC<CurrentWeatherProps> = ({ data }) => {
       </strong>
       <div className="details">
         <WeatherRow label="Details" />
-        <WeatherRow
-          label="Feels like"
-          value={`${Math.round(data.main.feels_like)}°C`}
-        />
-        <WeatherRow
-          label="Min temp"
-          value={`${Math.round(data.main.temp_min)}°C`}
-        />
-        <WeatherRow
-          label="Max temp"
-          value={`${Math.round(data.main.temp_max)}°C`}
-        />
-        {/* <WeatherRow
-          label="Sunrise "
-          value={convertUnixTimeToDate(data.sys.sunrise).toLocaleTimeString()}
-        /> */}
+        <WeatherRow label="Feels like" value={`${Math.round(data.main.feels_like)}°C`} />
+        <WeatherRow label="Min temp" value={`${Math.round(data.main.temp_min)}°C`} />
+        <WeatherRow label="Max temp" value={`${Math.round(data.main.temp_max)}°C`} />
       </div>
     </>
   );

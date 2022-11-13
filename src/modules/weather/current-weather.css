@@ -83,7 +83,8 @@
   display: flex;
   flex-wrap: wrap;
   flex: 1 1 0;
-
+  justify-content: center;
+  align-items: center;
 }
 .side-col {
   width: 15%;
@@ -91,8 +92,7 @@
 
 .outer-weather {
   display: flex;
-  background-image: url('./../../daria-nepriakhina-WQD6TCLOozg-unsplash.jpg');
+  background-image: url('./../../background.jpg');
   background-repeat: no-repeat;
   min-height: 70vh;
-  }
-
+}

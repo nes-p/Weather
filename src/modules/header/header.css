@@ -1,22 +1,11 @@
-/* .menu-icon {
-  width: 30px;
-  filter: invert();
-  align-self: flex-end;
-} */
-.logo{
+.logo {
   height: 10vmin;
 }
 
-.app-name{
-margin:10px;
+.app-name {
+  margin: 10px;
 }
 
-.units{
-margin-right: 20px;
+.units {
+  margin-right: 20px;
 }
-
-/* .internal-container {
-  display: flex;
-  flex-direction: row;
-} */
-

@@ -1,4 +1,4 @@
 export enum UNITS {
-  METRIC = "metric",
-  IMPERIAL = "imperial",
+  METRIC = 'metric',
+  IMPERIAL = 'imperial',
 }

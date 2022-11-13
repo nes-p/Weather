@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { UNITS } from "../../model/units";
+import { ChangeEvent, useState } from 'react';
+import { UNITS } from '../../../model/units';
 
 const useUnits = (unitsInitial?: UNITS) => {
   const [units, setUnits] = useState<UNITS>(unitsInitial ?? UNITS.METRIC);
@@ -11,7 +11,7 @@ const useUnits = (unitsInitial?: UNITS) => {
     }>
   ) => {
     const { value } = event.target;
-    //TODO: check this
+
     const newUnit = UNITS[value.toUpperCase() as keyof typeof UNITS];
     setUnits(newUnit);
   };
